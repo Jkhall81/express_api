@@ -1,14 +1,15 @@
 // Import required modules
 const express = require("express");
+const bodyParser = require("body-parser");
+const routes = require("./routes");
+
 const app = express();
 
-// Middleware
-app.use(express.json()); // Parse JSON bodies
-app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
+app.use(bodyParser.json());
+app.use("/", routes);
 
-// Define routes
-app.get("/", (req, res) => {
-  res.send("Hello, world!");
+app.use((err, req, res, next) => {
+  res.json(err);
 });
 
 // Export the Express app

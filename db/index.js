@@ -10,8 +10,4 @@ const pool = new Pool({
   port: 5432,
 });
 
-pool.query(`select * from monsters`, (err, res) => {
-  if (err) return console.error(err);
-
-  console.log(res);
-});
+module.exports = pool;

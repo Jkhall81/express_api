@@ -5,4 +5,4 @@ const port = 8000;
 const app = require("../app");
 
 const password = process.env.POSTGRES_PASSWORD;
-app.listen(port, () => console.log(password));
+app.listen(port, () => {});
